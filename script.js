@@ -35,7 +35,7 @@ $(function () {
   var saveBtn = $('.saveBtn');
   saveBtn.click(function () {
   var savedText = $('this').siblings('textarea').val();
-  localStorage.setItem($(this).parent().attr('id'), savedText);)
+  localStorage.setItem($(this).parent().attr('id'), savedText);
   });
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
