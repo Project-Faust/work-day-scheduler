@@ -1,17 +1,11 @@
+// document-ready function; only fires after document has loaded
 $(function () {
-  // defines today as dayjs variable
-  var today = dayjs();
-  // displays current day in current-day element
-  $('#current-day').text(today.format('MMM D, YYYY'));
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-
   // interval for 1000ms; allows to update while browser is displaying page
   setInterval(function () {
+      // defines today as dayjs variable
+  var today = dayjs();
+    // displays current day in current-day element
+    $('#current-day').text(today.format('MMM D, YYYY'));
     // declare variable that is assigned current hour (24hr clock)
     var currentHour = dayjs().hour();
     // for/each loop to compare each hour block to currentHour
@@ -32,10 +26,14 @@ $(function () {
       };
     });
   }, 1000)
+  // declare variable assigned to html object
   var saveBtn = $('.saveBtn');
+  // click handler for saveBtn
   saveBtn.click(function () {
-  var savedText = $('this').siblings('textarea').val();
-  localStorage.setItem($(this).parent().attr('id'), savedText);
+    // declare savedText and assign to content of textarea when click handler fires
+    var savedText = $('this').siblings('textarea').val();
+    // stores savedText value to key of 'hour-#' ID in local storage
+    localStorage.setItem($(this).parent().attr('id'), savedText);
   });
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
