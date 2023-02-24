@@ -14,9 +14,10 @@ $(function () {
   setInterval(function () {
     // declare variable that is assigned current hour (24hr clock)
     var currentHour = dayjs().hour();
-    // for/each loop 
+    // for/each loop to compare each hour block to currentHour
     $('.time-block').each(function () {
       var hourBlock = parseInt($(this).data('hour'));
+      // conditionally adds/changes CSS properties based on currentHour
       if (currentHour > hourBlock) {
         $(this).addClass('past');
       } else if (currentHour == hourBlock) {
