@@ -16,6 +16,7 @@ $(function () {
     var currentHour = dayjs().hour();
     // for/each loop to compare each hour block to currentHour
     $('.time-block').each(function () {
+      // declares and parses value assigned to data-hour in html so it can be used in comparison with num currentHour
       var hourBlock = parseInt($(this).data('hour'));
       // conditionally adds/changes CSS properties based on currentHour
       if (currentHour > hourBlock) {
