@@ -2,10 +2,10 @@
 $(function () {
   // interval for 1000ms; allows to update while browser is displaying page
   setInterval(function () {
-      // defines today as dayjs variable
-  var today = dayjs();
+    // defines today as dayjs variable
+    var today = dayjs();
     // displays current day in current-day element
-    $('#current-day').text(today.format('MMM D, YYYY'));
+    $('#current-day').text(today.format('dddd') + ', ' + today.format('MMM D, YYYY'));
     // declare variable that is assigned current hour (24hr clock)
     var currentHour = dayjs().hour();
     // for/each loop to compare each hour block to currentHour
@@ -35,7 +35,8 @@ $(function () {
     // stores savedText value to key of 'hour-#' ID in local storage
     localStorage.setItem($(this).parent().attr('id'), savedText);
   });
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
+  // retrieves data from local storage and displays in corresponding hour block
+  if ($('.description').val(localStorage.getItem(this).parent().attr('id')) != undefined && $('.description)').val(localStorage.getItem(this).parent().attr('id')) != null) {
+    $('.description').val(localStorage.getItem(this).parent().attr('id'));
+  };
 });
