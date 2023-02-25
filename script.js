@@ -5,7 +5,7 @@ $(function () {
     // defines today as dayjs variable
     var today = dayjs();
     // displays current day in current-day element
-    $('#current-day').text(today.format('dddd') + ', ' + today.format('MMM D, YYYY'));
+    $('#current-day').text(today.format('dddd MMM D, YYYY hh:mmA'));
     // declare variable that is assigned current hour (24hr clock)
     var currentHour = dayjs().hour();
     // for/each loop to compare each hour block to currentHour
@@ -31,12 +31,12 @@ $(function () {
   // click handler for saveBtn
   saveBtn.click(function () {
     // declare savedText and assign to content of textarea when click handler fires
-    var savedText = $('this').siblings('textarea').val();
+    var savedText = $(this).siblings('textarea').val();
     // stores savedText value to key of 'hour-#' ID in local storage
     localStorage.setItem($(this).parent().attr('id'), savedText);
   });
-  // retrieves data from local storage and displays in corresponding hour block
-  if ($('.description').val(localStorage.getItem(this).parent().attr('id')) != undefined && $('.description)').val(localStorage.getItem(this).parent().attr('id')) != null) {
-    $('.description').val(localStorage.getItem(this).parent().attr('id'));
-  };
+});
+// retrieves data from local storage and displays in corresponding hour block
+$('.description').each(function () {
+    $(this).val(localStorage.getItem($(this).parent().attr('id')));
 });
