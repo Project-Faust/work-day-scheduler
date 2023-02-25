@@ -14,6 +14,8 @@ $(function () {
       var hourBlock = parseInt($(this).data('hour'));
       // conditionally adds/changes CSS properties based on currentHour
       if (currentHour > hourBlock) {
+        $(this).removeClass('future');
+        $(this).removeClass('present');
         $(this).addClass('past');
       } else if (currentHour == hourBlock) {
         $(this).removeClass('past');
